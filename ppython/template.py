@@ -3,8 +3,9 @@ from random import *
 from math import *
 from tkinter import *
 
-class ppp:
+class ppp(Frame):
     def __init__(self, root):
+        super(ppp, self).__init__()
         self.Stroke_ = "black"
         self.Fill_="black"
         self.StrokeSize_ = 3
@@ -45,6 +46,10 @@ class ppp:
     def polygon(self):
         self.canvas.create_polygon(self.points, width=self.StrokeSize_, fill=self.Fill_,
             outline=self.Stroke_)
+			
+    def text(self, text, x, y):
+        l = Label(text = text)
+        l.place(x=x, y=y)
 
 def line(x, y, x2, y2):
     _p.line(x, y, x2, y2)
@@ -141,7 +146,8 @@ def vertex(x, y):
 def endShape(*args):
     _p.polygon()
 
-
+def text(text, x, y):
+    _p.text(text, x, y)
     
 from tkinter import *
 
@@ -151,8 +157,10 @@ root.title("processing python")
 _p = ppp(root)
 width = _p.width
 height = _p.height
+text("Hello, World", 10, 10)
+text("Hello, yourself", 10, 26)
 
-===||===
+#===||===
 
 #self.canvas.create_rectangle(20, 50, 200, 100, outline="black", fill="red", width=2, stipple="gray50")
 #fill("orange")
